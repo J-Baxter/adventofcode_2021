@@ -1,7 +1,7 @@
 # Advent Calendar 2021
 # Day 2
 
-rob_2 <- read.table(file = './data/input_day2')
+prob_2 <- read.table(file = './data/input_day2')
 grouped <- split.data.frame(prob_2, prob_2$V1)
 depth <- sum(grouped$down$V2) - sum(grouped$up$V2) 
 forward <- sum(grouped$forward$V2)
