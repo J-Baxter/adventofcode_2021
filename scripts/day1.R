@@ -2,11 +2,14 @@
 # Day 1
 library(tidyverse)
 
+#Problem 1
 table <- read.table(file = './data/input_day1')
 t <- table$V1
 
 which(diff(t1)>0) %>% length()
 
+
+#Problem 2
 groupings <- c()
 
 for (i in 1:(length(t)-2)){

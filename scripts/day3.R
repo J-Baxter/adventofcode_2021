@@ -2,6 +2,7 @@
 # Day 3
 library(tidyverse)
 
+#Problem 1
 options(scipen = 999)
 prob_3 <- read.table(file = './data/input_day3')
 prob3_mat <-  sapply(as.character(prob_3$V1), str_pad,width = 12, side = 'left', pad = 0) %>%
@@ -29,7 +30,7 @@ gamma_int <- paste(most_common,collapse="")  %>% strtoi(.,base = 2)
 epsilon_int <- paste(least_common,collapse="") %>% strtoi(.,base = 2)
 gamma_int * epsilon_int #3923414
 
-
+#Problem 2
 oxygen <- prob3_mat
 for(i in 1:12){
   if(length(oxygen)>12){

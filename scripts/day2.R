@@ -2,6 +2,7 @@
 # Day 2
 library(tidyverse)
 
+#Problem 1
 prob_2 <- read.table(file = './data/input_day2')
 grouped <- split.data.frame(prob_2, prob_2$V1)
 depth <- sum(grouped$down$V2) - sum(grouped$up$V2) 
@@ -21,6 +22,7 @@ for (i in 2:nrow(prob_2)){
   }
 }
 
+#Problem 2
 prob_2$aim <- aim
 grouped_p2 <- split.data.frame(prob_2, prob_2$V1)
 forward <- sum(grouped_p2$forward$V2)
@@ -36,5 +38,3 @@ for (i in 2:nrow(prob_2)){
 }
 
 forward * new_depth[length(new_depth)]
-
-
