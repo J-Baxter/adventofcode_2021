@@ -1,5 +1,6 @@
 # Advent Calendar 2021
 # Day 1
+library(tidyverse)
 
 table <- read.table(file = './data/input_day1')
 t <- table$V1

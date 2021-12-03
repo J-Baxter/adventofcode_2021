@@ -1,8 +1,9 @@
 # Advent Calendar 2021
 # Day 3
+library(tidyverse)
 
 options(scipen = 999)
-prob_3 <- read.table(file = '~/data/input_day3')
+prob_3 <- read.table(file = './data/input_day3')
 prob3_mat <-  sapply(as.character(prob_3$V1), str_pad,width = 12, side = 'left', pad = 0) %>%
   strsplit(.,"") %>% 
   do.call(rbind,.)
@@ -26,7 +27,7 @@ for (i in 1:ncol(prob3_mat)){
 
 gamma_int <- paste(most_common,collapse="")  %>% strtoi(.,base = 2)
 epsilon_int <- paste(least_common,collapse="") %>% strtoi(.,base = 2)
-gamma_int * epsilon_int #2923414
+gamma_int * epsilon_int #3923414
 
 
 oxygen <- prob3_mat
@@ -71,4 +72,4 @@ for(i in 1:12){
 
 co2_int <- paste(co2,collapse="")  %>% strtoi(.,base = 2)
 
-co2_int * oxygen_int
+co2_int * oxygen_int #5852595

@@ -1,5 +1,6 @@
 # Advent Calendar 2021
 # Day 2
+library(tidyverse)
 
 prob_2 <- read.table(file = './data/input_day2')
 grouped <- split.data.frame(prob_2, prob_2$V1)
