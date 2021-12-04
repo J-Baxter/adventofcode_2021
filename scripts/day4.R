@@ -69,8 +69,8 @@ while(length(loser) > 1){
 
 # Extract Losing board and its eventual winning number
 losing_board <- newboards[[loser]]
-wooden_spoon <- count+1
+wooden_spoon <- numbers[count+1]
 
-losing_board[which(numbers[wooden_spoon] == losing_board, arr.ind = T)] <- NA
+losing_board[which(wooden_spoon == losing_board, arr.ind = T)] <- NA
 
-sum(losing_board, na.rm = T) * numbers[wooden_spoon] #8224
+sum(losing_board, na.rm = T) * wooden_spoon #8224
