@@ -46,10 +46,31 @@ while(length(winner) == 0){
   count <- count + 1
   }
 
+# Extract winning number and winning board
 winning_board <- newboards[[winner]]
+winning_number <- numbers[count-1] 
 
-sum(winning_board, na.rm = T) * numbers[count-1] #28082
+# Calculate answer
+sum(winning_board, na.rm = T) * winning_number #28082
 
 
 # Problem 2
+loser<- 1:100
+newboards <- c()
+count = 1
+temp_boards <- boards
 
+while(length(loser) > 1){
+  newboards <- Hit(temp_boards, numbers[count])
+  loser <- which(!sapply(newboards, Bingo))
+  temp_boards <- newboards
+  count <- count + 1
+}
+
+# Extract Losing board and its eventual winning number
+losing_board <- newboards[[loser]]
+wooden_spoon <- count+1
+
+losing_board[which(numbers[wooden_spoon] == losing_board, arr.ind = T)] <- NA
+
+sum(losing_board, na.rm = T) * wooden_spoon #8224
