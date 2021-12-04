@@ -36,7 +36,7 @@ Bingo <- function(board){
 # while loop until a winner is found
 winner <- c()
 newboards <- c()
-count = 1
+count <- 1
 temp_boards <- boards
 
 while(length(winner) == 0){
@@ -57,7 +57,7 @@ sum(winning_board, na.rm = T) * winning_number #28082
 # Problem 2
 loser<- 1:100
 newboards <- c()
-count = 1
+count <- 1
 temp_boards <- boards
 
 while(length(loser) > 1){
@@ -73,4 +73,4 @@ wooden_spoon <- count+1
 
 losing_board[which(numbers[wooden_spoon] == losing_board, arr.ind = T)] <- NA
 
-sum(losing_board, na.rm = T) * wooden_spoon #8224
+sum(losing_board, na.rm = T) * numbers[wooden_spoon] #8224
