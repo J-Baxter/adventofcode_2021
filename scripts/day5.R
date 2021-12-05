@@ -11,7 +11,7 @@ lines <- read.table(file = './data/input_day5') %>%
   apply(., 2, as.numeric, simplify = T) %>%
   `colnames<-` (c('X1', 'X2', 'Y1', 'Y2'))
 
-map_init <- matrix(data = 0, nrow = 1000, ncol = 1000) 
+map_init <- matrix(data = 0, nrow = 10, ncol = 10) 
 
 
 # Plot function
@@ -36,7 +36,8 @@ PlotPath <- function(start, finish, map){
 
 
 # Problem 1
-perp_lines <- lines[which(lines[,'X1'] == lines[,'X2'] | lines[,'Y1'] == lines[,'Y2']),] 
+# +1 accommodates 0 value coords
+perp_lines <- lines[which(lines[,'X1'] == lines[,'X2'] | lines[,'Y1'] == lines[,'Y2']),] + 1
 
 start <- cbind('X1' = perp_lines[,'X1'], 'Y1' = perp_lines[,'Y1'])
 finish <- cbind('X2' = perp_lines[,'X2'], 'Y2' = perp_lines[,'Y2'])
@@ -48,7 +49,7 @@ points #7142
 
 
 # Problem 2
-all_lines <- lines +1
+all_lines <- lines + 1 # +1 accommodates 0 value coordinates
 
 start <- cbind('X1' = all_lines[,'X1'], 'Y1' = all_lines[,'Y1'])
 finish <- cbind('X2' = all_lines[,'X2'], 'Y2' = all_lines[,'Y2'])
