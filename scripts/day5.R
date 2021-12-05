@@ -3,7 +3,7 @@
 library(tidyverse)
 options(scipen = 999)
 
-
+# import data, format & label
 lines <- read.table(file = './data/input_day5') %>%
   select(., -V2) %>%
   apply(., 1, str_split, pattern = ',', simplify = T) %>%
@@ -11,10 +11,10 @@ lines <- read.table(file = './data/input_day5') %>%
   apply(., 2, as.numeric, simplify = T) %>%
   `colnames<-` (c('X1', 'X2', 'Y1', 'Y2'))
 
-map_init <- matrix(data = 0, nrow = 10, ncol = 10) 
+map_init <- matrix(data = 0, nrow = 1000, ncol = 1000) 
 
 
-# Plot function
+# Plot function: calculates a path from x1,y1 to x2,y2 and plots + 1 on cells passed through
 PlotPath <- function(start, finish, map){
   start_x <- start[,'X1']
   start_y <- start[,'Y1']
@@ -35,7 +35,7 @@ PlotPath <- function(start, finish, map){
 }
 
 
-# Problem 1
+# Problem 1: horizontal and vertical lines only
 # +1 accommodates 0 value coords
 perp_lines <- lines[which(lines[,'X1'] == lines[,'X2'] | lines[,'Y1'] == lines[,'Y2']),] + 1
 
@@ -48,7 +48,7 @@ points <- which(map_scored>=2, arr.ind = T) %>% nrow()
 points #7142
 
 
-# Problem 2
+# Problem 2: horizontal vertical and diagonal (moving at 45 degrees)
 all_lines <- lines + 1 # +1 accommodates 0 value coordinates
 
 start <- cbind('X1' = all_lines[,'X1'], 'Y1' = all_lines[,'Y1'])
