@@ -11,16 +11,14 @@ init_ages <- read.table(file = './data/input_day6', sep = ',') %>%
 # Initialise population ages as table (matrix)
 # tabulation important due to memory constraints/computational efficiency
 InitPop <- function(population, max_age = 8){
-  null_mat <- matrix(data = 0, ncol = (max_age + 1)) %>% `colnames<-` (c(0:max_age))
+  m <- matrix(data = 0, ncol = (max_age + 1)) %>% `colnames<-` (c(0:max_age))
   tab <- table(population) %>% as.matrix() %>% t()
   
-  match <- which(colnames(tab) %in% colnames(null_mat), arr.ind = T) +1
+  match <- which(colnames(tab) %in% colnames(m), arr.ind = T) +1
   
-  null_mat[,match] <- tab 
+  m[,match] <- tab 
   
-  pop_mat <- null_mat
-  
-  return(pop_mat)
+  return(m)
 }
 
 
