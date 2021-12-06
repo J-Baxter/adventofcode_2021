@@ -1,12 +1,12 @@
 # Advent Calendar 2021
 # Day 6
 library(tidyverse)
-
 options(scipen = 999)
 
 # Import 
 init_ages <- read.table(file = './data/input_day6', sep = ',') %>%
   as.numeric() 
+
 
 # Initialise population ages as table (matrix)
 # tabulation important due to memory constraints/computational efficiency
@@ -46,8 +46,10 @@ UpdatePop <- function(initial, max_days){
   return(mat_temp)
 }
 
+
 # Initialise population matrix
 gen_nought <- InitPop(init_ages)
+
 
 # Problem 1
 eightydays <- UpdatePop(gen_nought, 80)%>% 
